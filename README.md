@@ -37,11 +37,12 @@ Example of cache structure:
 - [Installation](#installation)
 - [Basic usage](#basic-usage)
 - [Examples](#examples)
-  - [Invalidate cache once in a hour](#invalidate-cache-once-in-a-hour)
+  - [Invalidate cache](#invalidate-cache)
   - [Modify cached response](#modify-cached-response)
   - [Disable cache](#disable-cache)
   - [Force cache update](#force-cache-update)
   - [Auto-cache request for all tests](#auto-cache-request-for-all-tests)
+  - [Auto-cache static assets](#auto-cache-static-assets)
   - [Additional match by HTTP status](#additional-match-by-http-status)
   - [Additional match by request fields](#additional-match-by-request-fields)
   - [Split cache by test title](#split-cache-by-test-title)
@@ -132,7 +133,7 @@ See more examples below or check [configuration options](#options).
 
 ## Examples
 
-### Invalidate cache once in a hour
+### Invalidate cache
 
 <details>
   <summary>Click to expand</summary>
@@ -146,6 +147,9 @@ test('test', async ({ page, cacheRoute }) => {
   // ...
 });
 ```
+
+> Currently, HTTP cache headers are not used by `playwright-network-cache`. See [#4](https://github.com/vitalets/playwright-network-cache/issues/4) for more details.
+
 </details>
 
 ### Modify cached response
@@ -250,6 +254,26 @@ export const test = base.extend<{ cacheRoute: CacheRoute }>({
   }, { auto: true }]
 });
 ```
+</details>
+
+### Auto-cache static assets
+
+<details>
+  <summary>Click to expand</summary>
+
+You can cache static assets to run tests faster. Define `cacheRoute` as [auto fixture](https://playwright.dev/docs/test-fixtures#automatic-fixtures) and setup cache rules:
+```ts
+export const test = base.extend<{ cacheRoute: CacheRoute }>({
+  cacheRoute: [async ({ page }, use) => {
+    const cacheRoute = new CacheRoute(page);
+    await cacheRoute.GET('**/*.png', { // <-- cache all *.png images
+      ttlMinutes: 24 * 60
+    });
+    await use(cacheRoute);
+  }, { auto: true }]
+});
+```
+
 </details>
 
 ### Additional match by HTTP status
