@@ -25,7 +25,7 @@
     "test": "npx playwright test",
     "test:d": "DEBUG=playwright-network-cache npm test",
     "pw": "npm i --no-save @playwright/test@$PW",
-    "browsers": "npx cross-env PLAYWRIGHT_SKIP_BROWSER_GC=1 npx playwright install chromium",
+    "pw:install": "npx cross-env PLAYWRIGHT_SKIP_BROWSER_GC=1 npx playwright install chromium",
     "example": "npx playwright test -c example",
     "example:debug": "DEBUG=playwright-network-cache npx playwright test -c example",
     "example:nocache": "rm -rf .network-cache && npx playwright test -c example",
@@ -35,29 +35,29 @@
     "release": "release-it"
   },
   "dependencies": {
-    "debug": "^4.4.1",
+    "debug": "^4.4.3",
     "mime-types": "^3.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@playwright/test": "1.50",
+    "@eslint/js": "^9.37.0",
+    "@playwright/test": "^1.55.1",
     "@release-it/keep-a-changelog": "^7.0.0",
     "@types/debug": "4.1.12",
     "@types/mime-types": "^3.0.1",
     "@types/node": "^18.15.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.37.0",
     "eslint-plugin-playwright": "^2.2.2",
     "eslint-plugin-visual-complexity": "0.1.4",
-    "globals": "^16.3.0",
-    "knip": "^5.62.0",
-    "lint-staged": "^16.1.5",
+    "globals": "^16.4.0",
+    "knip": "^5.64.2",
+    "lint-staged": "^16.2.3",
     "markdown-magic": "^3.7.0",
     "prettier": "^3.6.2",
-    "publint": "^0.3.12",
-    "release-it": "^19.0.4",
+    "publint": "^0.3.14",
+    "release-it": "^19.0.5",
     "ts-node": "^10.9.2",
     "typescript": "5.4.5",
-    "typescript-eslint": "^8.39.1"
+    "typescript-eslint": "^8.45.0"
   },
   "repository": {
     "type": "git",
