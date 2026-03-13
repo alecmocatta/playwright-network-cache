@@ -1,0 +1,1 @@
+{"version":3,"file":"defaults.js","sourceRoot":"","sources":["../../src/CacheRoute/defaults.ts"],"names":[],"mappings":";;;AAEa,QAAA,QAAQ,GAAG;IACtB,OAAO,EAAE,gBAAgB;IACzB,aAAa,EAAE,CAAC,GAAG,EAAE,EAAE,CAAC;QACtB,GAAG,CAAC,QAAQ,EAAE,kBAAkB;QAChC,GAAG,CAAC,QAAQ;QACZ,GAAG,CAAC,UAAU;QACd,GAAG,CAAC,QAAQ;QACZ,GAAG,CAAC,UAAU;KACf;CAC6D,CAAC"}
